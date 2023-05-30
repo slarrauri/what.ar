@@ -8,12 +8,7 @@ import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({
-    Key? key,
-    required this.uploadesFile,
-  }) : super(key: key);
-
-  final FFUploadedFile? uploadesFile;
+  const HomePageWidget({Key? key}) : super(key: key);
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
