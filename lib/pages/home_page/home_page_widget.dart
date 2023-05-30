@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +8,12 @@ import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+  const HomePageWidget({
+    Key? key,
+    required this.uploadesFile,
+  }) : super(key: key);
+
+  final FFUploadedFile? uploadesFile;
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
@@ -73,12 +79,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ).image,
               ),
             ),
-            child: Container(
+            child: FlutterFlowVideoPlayer(
+              path: 'assets/videos/what.mp4',
+              videoType: VideoType.asset,
               width: double.infinity,
               height: double.infinity,
-              child: Stack(
-                children: [],
-              ),
+              autoPlay: true,
+              looping: true,
+              showControls: false,
+              allowFullScreen: true,
+              allowPlaybackSpeedMenu: false,
             ),
           ),
         ),
