@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -41,37 +40,46 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          title: Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/logo-512.png',
+                width: 150.0,
+                height: 80.0,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 2.0,
+        ),
         body: SafeArea(
           top: true,
-          child: Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+              image: DecorationImage(
+                fit: BoxFit.contain,
+                image: Image.asset(
                   'assets/images/logo-512.png',
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.contain,
-                ),
+                ).image,
               ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: BoxDecoration(),
-                  child: FlutterFlowVideoPlayer(
-                    path: 'assets/videos/what.mp4',
-                    videoType: VideoType.asset,
-                    autoPlay: true,
-                    looping: true,
-                    showControls: false,
-                    allowFullScreen: true,
-                    allowPlaybackSpeedMenu: false,
-                  ),
-                ),
+            ),
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: Stack(
+                children: [],
               ),
-            ],
+            ),
           ),
         ),
       ),
