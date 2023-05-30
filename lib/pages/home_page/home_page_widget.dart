@@ -60,20 +60,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   width: double.infinity,
                   height: double.infinity,
                   decoration: BoxDecoration(),
-                  child: Visibility(
-                    visible: responsiveVisibility(
-                      context: context,
-                      phone: false,
-                    ),
-                    child: FlutterFlowVideoPlayer(
-                      path: 'assets/videos/what.mp4',
-                      videoType: VideoType.asset,
-                      autoPlay: true,
-                      looping: true,
-                      showControls: false,
-                      allowFullScreen: true,
-                      allowPlaybackSpeedMenu: false,
-                    ),
+                  child: FlutterFlowVideoPlayer(
+                    path: 'assets/videos/what.mp4',
+                    videoType: VideoType.asset,
+                    autoPlay: true,
+                    looping: true,
+                    showControls: false,
+                    allowFullScreen: true,
+                    allowPlaybackSpeedMenu: false,
                   ),
                 ),
               ),
