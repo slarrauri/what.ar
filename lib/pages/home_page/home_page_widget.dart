@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +17,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -30,7 +28,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -39,32 +36,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(55.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            title: Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/logo-512.png',
-                  width: 150.0,
-                  height: 80.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            actions: [],
-            centerTitle: false,
-            elevation: 2.0,
-          ),
-        ),
         body: SafeArea(
           top: true,
           child: Stack(
@@ -80,15 +55,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       'assets/images/logo-512.png',
                     ).image,
                   ),
-                ),
-                child: FlutterFlowVideoPlayer(
-                  path: 'assets/videos/what.mp4',
-                  videoType: VideoType.asset,
-                  autoPlay: true,
-                  looping: true,
-                  showControls: false,
-                  allowFullScreen: true,
-                  allowPlaybackSpeedMenu: false,
                 ),
               ),
             ],
